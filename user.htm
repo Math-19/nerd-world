@@ -7,13 +7,16 @@
 		line-height: 1.99;
 		display: inline-block;
 		background-color:#FE7E73;
-		padding: 10px;
+		padding: 35px;
 		border-radius:6px;
 		text-align:left;
 	}
 	img{
-	float: right;
-	height: 140px;
+	float : right;
+	margin-bottom: -87px;
+    margin-left: 24px;
+    margin-top: -32px;
+    margin-right: -36px;
 	}
 	@font-face {
 		font-family: myFirstFont;
@@ -23,7 +26,7 @@
   		font-family: myFirstFont;
 		font-size:30px;
 		}
-	input[type=text] {
+	input[type=text] ,#sel{
 	background-color : white;
 	border: 0.1px solid black;
 	border-radius: 3px;
@@ -31,7 +34,7 @@
 	padding-left: 5px;
 	padding-right: 5px;
 	}
-	input[type=password] ,#sl{
+	input[type=password] {
 	background-color : white;
 	border: 0.1px solid black;
 	border-radius: 3px;
@@ -41,15 +44,15 @@
 	}
 	a:link, a:visited {
   	background-color: white;
-  	width:auto;
+  	width:35%;
   	color: #FE7E73;
   	border: 2px solid black;
-  	padding: 3px 3px;
+  	padding: 4px 6px;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
 	}
-	a:hover, a:active ,button:hover{
+	a:hover, a:active,button:hover{
 	color: black;
 	}
 	button {
@@ -64,32 +67,102 @@
 	cursor: pointer;
 	}
 	</style>
+
+<script> 
+function fun1()                                    
+{ 
+    var name = document.f1.uname;               
+    var email = document.f1.eid;  
+    var what=document.f1.sel;	
+    var phone = document.f1.mn;   
+    var password = document.f1.pas;  
+    var cpassword = document.f1.cpas;  
+	var gen=document.f1.gender;
+   
+    if (name.value == "")                                  
+    { 
+        window.alert("Please enter your name."); 
+        name.focus(); 
+        return false; 
+    } 
+   
+       
+    if ((email.value == "")&&(email.value.indexOf("@", 0) < 0)&&(email.value.indexOf(".", 0) < 0))                                   
+    { 
+        window.alert("Please enter a valid e-mail address."); 
+        email.focus(); 
+        return false; 
+    } 
+    if (what.selectedIndex < 1)                  
+    { 
+        alert("Please select your country code."); 
+        what.focus(); 
+        return false; 
+    } 
+    if (phone.value == "")                           
+    { 
+        window.alert("Please enter your mobilenumber."); 
+        phone.focus(); 
+        return false; 
+    } 
+	var patt=/^\d{10}$/g;
+    if (phone.value.match(patt))
+	{
+        return true;
+    }
+    else
+    {
+        window.alert("enter a valid mobile number");
+        return false;
+    }
+    if ( ( document.f1.gender[0].checked == false ) && ( document.f1.gender[1].checked == false ) ) 
+    {
+        alert ( "Please choose your Gender" ); 
+        return false;
+    }
+	}
+    if (password.value == "")                        
+    { 
+        window.alert("Please enter your password"); 
+        password.focus(); 
+        return false; 
+    }
+    if (password.value != cpassword.value)                        
+    { 
+        window.alert("Please confirm your password"); 
+        password.focus(); 
+        return false; 
+    } 	
+   
+    return true; 
+}
+</script>
 	</head>
 	<body>
-	<center><form >
+	<center><form name="f1">
 	<img src="pl.jpg">
 	Create an account here.<br>
-	<input type="text" value="" placeholder="First name"><br>
-	<input type="text" value="" placeholder="Middle name"><br>
-	<input type="text" value="" placeholder="Last name"><br>
-	<input type="text" value="" placeholder="Email-id" size=30><br>
-        <SELECT id="sl">
-          <option>+91</option>
-          <option>+92</option>
-          <option>+93</option>
-          <option>+94</option>
-        </select>
-        <input type="text" value="" placeholder="Mobile number"><br>
-        <input type="radio" name="gender">male</input>&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="gender">female</input><br>
-	<input type="password" value="" placeholder="create new password" size=30><br>
-	<input type="password" value="" placeholder="confirm password" size=30><br>
-	<button>SignUp</button><br>
+	<input type="text" name="uname" placeholder="Username"><br>
+	<input type="text" name="eid" placeholder="Email-id" size=30><br>
+	<select id=sel name="sel">
+	<option></option>
+	<option>+91</option>
+	<option>+92</option>
+	<option>+93</option>
+	<option>+94</option>
+	</select>
+	<input type="text" name="mn" placeholder="mobile number" size=30><br>
+    <input type="radio" name="gender">male</input>&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="gender">female</input><br>	
+	<input type="password" name="pas" placeholder="create new password" size=30><br>
+	<input type="password" name="cpas" placeholder="confirm password" size=30><br>
+	<div><button onclick="fun1()">SignUp</button></div><br>
 	Already have an account?<br>
-	&nbspEmail-id: <input type="text" value="" placeholder="User-Id" size=30><br>
+	&nbsp;Email-id: <input type="text" value="" placeholder="User-Id" size=30><br>
 	Password: <input type="password" value="" placeholder="8-digit password" size=30><br>
-	<button>Login</button><br>
+	<div><button>Login</button></div><br>
 	<div align="center" class="title"><a class="sc" href="nwc.htm" target="_top">skip to course</a></div>
 	</form></center>
 	</body>
 </html>
+
