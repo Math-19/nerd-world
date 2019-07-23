@@ -111,7 +111,7 @@ function fun1()
 	
 	
 	var patt=/^\d{10}$/g;
-    if (phone.value.match(patt)==false)
+    if (patt.test(phone.value)==false)
     {
         window.alert("enter a valid mobile number");
         return false;
