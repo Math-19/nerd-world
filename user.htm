@@ -42,7 +42,7 @@
 	padding-left: 5px;
 	padding-right: 5px;
 	}
-	a:link, a:visited {
+	.sc {
   	background-color: white;
   	width:35%;
   	color: #FE7E73;
@@ -52,7 +52,7 @@
   	text-decoration: none;
   	display: inline-block;
 	}
-	a:hover, a:active,button:hover{
+	.sc:hover, .sc:active,button:hover{
 	color: black;
 	}
 	button {
@@ -129,10 +129,28 @@ function fun4()
 		phone.focus();
 		return false;
     }
-	document.f1.pas.focus();
+	document.f1.gender.focus();
 	return true;
  }
-
+function work()
+{
+  var s = "?";
+  var i = 0;
+  for(;i<document.f1.elements.length;i++)
+  {
+    if(("gender"==(document.f1.elements[i].name))&&(document.f1.elements[i].checked))
+    {
+      s = document.f1.elements[i].value;
+    }
+  }
+  if("?" == s)
+  {
+    alert("Please select a gender");
+    return false;
+  }
+  document.f1.pas.focus;
+return true;
+}
 function fun5()
 {
     var password = document.f1.pas;  
@@ -173,19 +191,24 @@ function fun6()
 	<option value="4">+94</option>
 	</select>
 	<input type="text" name="mn" placeholder="mobile number" size=30 onchange="fun4()"><br>
-        <input type="radio" name="gender">male</input>&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="gender">female</input><br>
+	<div onchange="work()">
+    <input type="radio" name="gender">male</input>&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="gender">female</input><br>
+    </div>	
 	<input type="password" name="pas" placeholder="create new password" size=30 onchange="fun5()"><br>
 	<input type="password" name="cpas" placeholder="confirm password" size=30 onchange="fun6()"><br>
 	<div><button>SignUp</button></div><br>
 	Already have an account?<br>
 	&nbsp;Email-id: <input type="text" value="" placeholder="User-Id" size=30><br>
 	Password: <input type="password" value="" placeholder="Password" size=30><br>
-	<div><button>Login</button>&nbsp;&nbsp;<a style="color: blueviolet;">forgot password?</a><br></div>
+    <button>Login</button>&nbsp;&nbsp;<a id="fp" href="">forgot password?</a><br>
 	<div align="center" class="title"><a class="sc" href="nwc.htm" target="_top">skip to course</a></div>
 	</form></center>
 	</body>
 </html>
+
+
+
 
 
 
